@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Películas Favoritas</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mi Catálogo de Películas Favoritas</h1>
+        
+        <p class="description">
+            Una aplicación web simple para organizar mis películas favoritas. Cada película incluye un título, una descripción breve y un estado que indica si ya la vi o es pendiente.
+        </p>
+
+        <div class="stats">
+            <p>Total de películas: 4</p>
+            <p>Vistas: 2</p>
+            <p>Pendientes: 1</p>
+            <p>Favoritas: 1</p>
+        </div>
+
+       <div class="films">
+           <div class="film">
+               <img src="/static/images/inception.jpg" alt="Inception" class="film-img">
+               <h3>Inception</h3>
+               <p><strong>Descripción:</strong> Entrar y salir de los sueños podría ser extraordinario, aunque peligroso</p>
+               <p><strong>Estado:</strong> <span class="status Vista">Vista</span></p>
+           </div>
+
+           <div class="film">
+               <img src="/static/images/amelie.jpg" alt="Amelie" class="film-img">
+               <h3>Amelie</h3>
+               <p><strong>Descripción:</strong> En los detalles está lo mágico, lo cotidiano es único al mismo tiempo</p>
+               <p><strong>Estado:</strong> <span class="status Favorita">Favorita</span></p>
+           </div>
+
+           <div class="film">
+               <img src="/static/images/django.jpg" alt="Django Sin Cadenas" class="film-img">
+               <h3>Django Sin Cadenas</h3>
+               <p><strong>Descripción:</strong> Un clásico Western con tintes de venganza y persecución, obra maestra de Tarantino</p>
+               <p><strong>Estado:</strong> <span class="status Vista">Vista</span></p>
+           </div>
+
+           <div class="film">
+               <img src="/static/images/starwars.jpg" alt="Star Wars" class="film-img">
+               <h3>Star Wars</h3>
+               <p><strong>Descripción:</strong> Guerras interespaciales y peleas emblemáticas</p>
+               <p><strong>Estado:</strong> <span class="status Pendiente">Pendiente</span></p>
+           </div>
+       </div>
+    </div>
+</body>
+</html>
