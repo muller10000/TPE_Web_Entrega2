@@ -1,3 +1,5 @@
-module github.com/muller10000/TPE_Web_Entrega1
+module github.com/muller10000/TPE_Web_Entrega2
 
-go 1.25.1
+go 1.22.0
+
+require github.com/lib/pq v1.10.9
