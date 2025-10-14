@@ -1,0 +1,18 @@
+# Go build
+/bin/
+/obj/
+/*.exe
+
+# Dependencias
+/vendor/
+
+# Archivos de entorno
+.env
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Docker
+docker-compose.override.yml
+*.pid
