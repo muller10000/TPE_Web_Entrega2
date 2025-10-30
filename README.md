@@ -1,6 +1,7 @@
 # Trabajo Práctico Especial - Programación Web
 
 # Autor: Matías Muller
+
 # Proyecto: Películas 3ra Entrega
 
 # Descripción del Proyecto
@@ -32,20 +33,24 @@ rating → calificación de la película
 
 -Linux 
 
--Go
- 1.22 o superior
+-Go 1.22 o superior
 
 -Docker instalado (Para levantar contenedores)
-
 
 # Ejecución del proyecto
 
 1) Clonar este repositorio.
 
-2) copiar el contenido del archivo ".env.example" en un nuevo archivo ".env" reemplazando con las credenciales reales.
+2) Copiar el contenido del archivo ".env.example" en un nuevo archivo ".env" reemplazando con las credenciales reales.
 
 DB_NAME=peliculas_tp2
 DB_USER=peliculas_user
 DB_PASSWORD=peliculas_pass
 
-3) Ejecutar Script Run.sh (levanta la base y la api mediante docker)
+3) Ejecucion de script en consola linux
+
+./runtest.sh
+
+- Construye la app (build del binario con Docker).
+- Levanta los contenedores (DB + API).
+- Ejecuta los tests CRUD automáticamente.
