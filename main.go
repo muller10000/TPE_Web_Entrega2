@@ -3,25 +3,17 @@ package main
 import (
 	"context"
 	"database/sql"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
 	"time"
 
 	_ "github.com/lib/pq"
+	"github.com/muller10000/TPE_Web_Entrega2/handlers"
 	"github.com/muller10000/TPE_Web_Entrega2/repository"
 )
 
 var queries *repository.Queries
-
-type CreateMovieRequest struct {
-	Title    string  `json:"title"`
-	Director *string `json:"director"`
-	Year     *int32  `json:"year"`
-	Genre    *string `json:"genre"`
-	Rating   *string `json:"rating"`
-}
 
 func connectDB() (*sql.DB, error) {
 	host := os.Getenv("DB_HOST")
@@ -79,68 +71,6 @@ func testConnection() {
 	fmt.Println("🎬 Todas las películas:", movies)
 }
 
-func valueOrEmpty(s *string) string {
-	if s != nil {
-		return *s
-	}
-	return ""
-}
-
-func valueOrZero(i *int32) int32 {
-	if i != nil {
-		return *i
-	}
-	return 0
-}
-
-func handlerPeliculas(w http.ResponseWriter, r *http.Request) {
-	switch r.Method {
-	//Endpoint que lista todas las peliculas
-	case http.MethodGet:
-		movies, err := queries.ListMovies(context.Background())
-
-		if err != nil {
-			panic(err)
-		}
-
-		json.NewEncoder(w).Encode(movies)
-
-	//Endpoint que crea las peliculas
-	case http.MethodPost:
-		var req CreateMovieRequest
-		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
-			http.Error(w, "JSON inválido", http.StatusBadRequest)
-			return
-		}
-
-		if req.Title == "" {
-			http.Error(w, "El título es obligatorio", http.StatusBadRequest)
-			return
-		}
-
-		p := repository.CreateMovieParams{
-			Title:    req.Title,
-			Director: sql.NullString{String: valueOrEmpty(req.Director), Valid: req.Director != nil},
-			Year:     sql.NullInt32{Int32: valueOrZero(req.Year), Valid: req.Year != nil},
-			Genre:    sql.NullString{String: valueOrEmpty(req.Genre), Valid: req.Genre != nil},
-			Rating:   sql.NullString{String: valueOrEmpty(req.Rating), Valid: req.Rating != nil},
-		}
-
-		movie, err := queries.CreateMovie(context.Background(), p)
-		if err != nil {
-			http.Error(w, "Error al crear película", http.StatusInternalServerError)
-			return
-		}
-
-		w.WriteHeader(http.StatusCreated)
-		json.NewEncoder(w).Encode(movie)
-
-	//Evitamos la conexion atravez de cualquier otro metodo
-	default:
-		http.Error(w, "Método no permitido", http.StatusMethodNotAllowed)
-	}
-}
-
 func main() {
 	// Servir archivos estáticos (de la entrega 1)
 	fs := http.FileServer(http.Dir("./static"))
@@ -162,7 +92,7 @@ func main() {
 	//	http.ServeFile(w, r, "index.html")
 	//})
 
-	http.HandleFunc("/peliculas", handlerPeliculas)
+	http.HandleFunc("/peliculas", handlers.NewHandlerPeliculas(queries))
 
 	fmt.Println("Servidor escuchando en http://localhost:8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
