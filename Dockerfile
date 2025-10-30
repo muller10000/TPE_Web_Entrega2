@@ -13,8 +13,7 @@ COPY . .
 RUN apt-get update && apt-get install -y curl && \
 rm -rf /var/lib/apt/lists/* && go build -o peliculas-api .
 
-
 ENV PORT=8080
 EXPOSE 8080
 
-CMD ["./peliculas-api"]
+CMD ["/app/peliculas-api"]
