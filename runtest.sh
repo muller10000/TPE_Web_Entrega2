@@ -1,12 +1,12 @@
 echo "🚀 Construyendo la app y levantando contenedores..."
 
-docker-compose down -v  # Baja contenedores y borra volúmenes temporales (DB limpia)
+docker compose down -v  # Baja contenedores y borra volúmenes temporales (DB limpia)
 docker build --no-cache -t peliculas-api .
-docker-compose up -d   # Levanta DB y API en segundo plano
+docker compose up -d   # Levanta DB y API en segundo plano
 
 # Esperar que la API esté lista
 echo "Esperando a que la API esté disponible..."
-sleep 5  # ajusta según tu tiempo de arranque
+sleep 5  # ajustar según tiempo de arranque
 
 echo "Ejecutando tests CRUD..."
 
