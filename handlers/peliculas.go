@@ -19,7 +19,7 @@ type CreateMovieRequest struct {
 	Rating   *string `json:"rating"`
 }
 
-// Funciones auxiliares
+// Funciones auxiliares para los atributos que pueden ser NULL (ya que estos se convierten en STRUCT)
 
 func valueOrEmpty(s *string) string {
 	if s != nil {
