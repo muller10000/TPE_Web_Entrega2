@@ -47,7 +47,11 @@ func main() {
 		http.ServeFile(w, r, "index.html")
 	})
 
+	// GET y POST
 	http.HandleFunc("/peliculas", handlers.NewHandlerPeliculas(queries))
+
+	// GET, PUT, DELETE por ID
+	http.HandleFunc("/peliculas/", handlers.NewHandlerPeliculaByID(queries))
 
 	fmt.Println("Servidor escuchando en http://localhost:8080")
 	if err := http.ListenAndServe(":8080", nil); err != nil {

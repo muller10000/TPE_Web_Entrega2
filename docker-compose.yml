@@ -1,6 +1,7 @@
 services:
   api:
     build: .
+    image: peliculas-api
     container_name: peliculas-api
     ports:
       - "8080:8080"

@@ -25,10 +25,6 @@ genre → género de la película
 
 rating → calificación de la película
 
-# Estructura
-
-
-
 # Requisitos previos
 
 -Linux 
