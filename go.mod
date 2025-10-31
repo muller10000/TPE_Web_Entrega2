@@ -1,4 +1,4 @@
-module github.com/muller10000/TPE_Web_Entrega2
+module github.com/muller10000/TPE_Web_Entrega3
 
 go 1.22.0
 

@@ -7,8 +7,8 @@ import (
 	"os"
 
 	_ "github.com/lib/pq"
-	"github.com/muller10000/TPE_Web_Entrega2/handlers"
-	"github.com/muller10000/TPE_Web_Entrega2/repository"
+	"github.com/muller10000/TPE_Web_Entrega3/handlers"
+	"github.com/muller10000/TPE_Web_Entrega3/repository"
 )
 
 var queries *repository.Queries

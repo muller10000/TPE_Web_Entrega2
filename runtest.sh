@@ -3,12 +3,13 @@ echo "🚀 Construyendo la app y levantando contenedores..."
 docker compose down -v 
 # down -v → limpia contenedores y volúmenes.
 
-docker compose up -d --build
-# mejor para levantar todo en desarrollo
+# docker compose up -d --build
+# mejor para levantar todo en desarrollo reutilizando cache
 
-# docker compose build --no-cache
+docker compose build --no-cache
 # build --no-cache → compila la app desde cero.
-# docker compose up -d 
+
+docker compose up -d 
 # up -d → levanta DB y API en segundo plano.
 
 # Esperar que la API esté lista
@@ -63,6 +64,7 @@ echo ""
 
 echo "✅ CRUD completo ejecutado"
 
+#ORDEN:
 #Crear 3 películas
 #Actualizar la película con ID 2
 #Obtener la película actualizada por ID

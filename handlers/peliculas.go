@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/muller10000/TPE_Web_Entrega2/repository"
+	"github.com/muller10000/TPE_Web_Entrega3/repository"
 )
 
 // define el formato del cuerpo JSON que la API espera recibir

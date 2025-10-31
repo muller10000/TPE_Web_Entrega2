@@ -4,10 +4,6 @@
 
 # Proyecto: Películas 3ra Entrega
 
-# Descripción del Proyecto
-
-
-
 # Dominio de la aplicación
 
 El dominio elegido es Películas.
@@ -38,8 +34,8 @@ rating → calificación de la película
 1) Clonar este repositorio.
 
 2) Copiar el contenido del archivo ".env.example" en un nuevo archivo ".env" reemplazando con las credenciales reales.
-
-DB_NAME=peliculas_tp2
+En mi caso:
+DB_NAME=peliculas_tp3
 DB_USER=peliculas_user
 DB_PASSWORD=peliculas_pass
 
